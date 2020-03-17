@@ -1,0 +1,38 @@
+//To find all non-empty subsets of a given set using recursion
+//author--ashigup
+
+
+#include<iostream>
+#include<bitset>
+#include<vector>
+#include<math.h>
+#define ll long long int
+using namespace std;
+ll s;                         //for size
+ll a[100];                   //if size is not known , subsets can be found by passin a[].
+
+void subset(vector<ll> v,ll n)
+{
+    if(n==s)
+    {
+        for(auto i=0;i!=v.size();i++)
+          cout<<v[i]<<" ";
+        cout<<"\n";  
+    }
+    else
+    {
+        subset(v,n+1);
+        v.push_back(a[n]);
+        subset(v,n+1);
+    }
+}
+int main()
+{    
+cin>>s;
+for(int i=0;i<s;i++)
+  cin>>a[i];
+vector<ll> v;
+subset(v,0);
+  
+    return 0;
+}
