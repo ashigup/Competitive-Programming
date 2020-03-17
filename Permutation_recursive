@@ -50,18 +50,5 @@ permutation();
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*----------------------------------------------------------------------------------------------------------------------*/
 //You can also use next_permutation() to find permutations but remember to sort the string.
