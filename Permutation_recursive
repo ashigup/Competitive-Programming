@@ -45,3 +45,23 @@ int main()
 permutation();     
     return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*----------------------------------------------------------------------------------------------------------------------*/
+//You can also use next_permutation() to find permutations but remember to sort the string.
