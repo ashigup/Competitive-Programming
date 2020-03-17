@@ -1,5 +1,5 @@
 //To find all non-empty subsets of a given set using bitmasking
-//author--ashigup11
+//author--ashigup
 
 
 #include<iostream>
