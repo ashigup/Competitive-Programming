@@ -1,0 +1,39 @@
+//https://www.geeksforgeeks.org/largest-sum-contiguous-subarray/
+//Kandane's Algorithm--gfg
+//Author -ashigup --- aka --- Lucifer_07__
+
+
+#include<iostream>
+#include<vector>
+#include<algorithm>
+#define ll long long int
+#define m 1000000007
+using namespace std;
+
+int main()
+{ 
+  ll n,t;
+  cin>>t;
+  while(t--){
+  cin>>n;
+  vector<ll> a(n+3);
+  ll sum=0;
+  ll best=0;
+  for(ll i=0;i<n;i++)
+  {
+      cin>>a[i];
+      sum+=a[i];
+      if(sum<0)
+       sum=0;
+      best=max(best,sum);
+      if(best==0)
+       {
+           sort(a.begin(),a.end() );
+           best=a[n-1];
+       }
+      
+  }
+  cout<<best<<"\n";
+  }
+    return 0;
+}
