@@ -1,0 +1,56 @@
+//https://practice.geeksforgeeks.org/problems/0-1-knapsack-problem/0
+//Knapsack Problem using dynamic program
+//Author -- ashigup -- aka -- Lucifer_07__
+
+#include<bits/stdc++.h>
+using namespace std;
+ int dp[1003][1003];
+int m;
+int solve(int weight[],int val[],int w,int n)
+{
+  if(w<=0 || n==m)
+  {//cout<<"\n";
+  return 0;}
+  
+  if(dp[w][n] !=  -1)
+   {//cout<<"h\n";	
+   return dp[w][n];}
+  if(weight[n]>w)
+     {
+         dp[w][n]=solve( weight, val,w,n+1);
+         return dp[w][n];
+     }
+     else
+  { //cout<<"\n";
+  	dp[w][n]=max(solve( weight, val,w,n+1),(solve( weight, val,w-weight[n],n+1)+val[n] ) );
+  	//cout<<dp[w][n]<<"  ";
+  	return dp[w][n];
+  } 	 
+
+}
+int main()
+{
+   int t;
+   cin>>t;
+while(t--){    
+    
+    
+ int weight[1003];
+ int val[1003];
+ 
+ int w,ans,i;
+ cin>>m>>w;
+ for(i=0;i<1003;i++) 
+   for(int j=0;j<1003;j++)
+     dp[i][j]=-1;
+     for(i=0;i<m;i++)
+    cin>>val[i];
+    
+ for(i=0;i<m;i++)
+ 	cin>>weight[i]; 
+ 	 
+ ans=solve(weight, val,w,0);
+ cout<<ans<<"\n";
+}
+return 0;
+}
