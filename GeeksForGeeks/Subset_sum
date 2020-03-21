@@ -1,0 +1,49 @@
+//https://www.geeksforgeeks.org/subset-sum-problem-dp-25/
+//Subset sum problem --  geeks for geeks
+//Author -- ashigup -- aka -- Lucifer_07__
+
+#include<bits/stdc++.h>
+using namespace std;
+int size;
+
+
+int check(vector<int> a,int n,int sum)
+{ 
+  if(sum==0)
+       return 1;
+    if(sum<0 ||  n==size)
+         return 0;
+    
+    else
+      {
+         return check(a,n+1,sum-a[n]) || check(a,n+1,sum);
+      }
+    
+}
+
+int main()
+{  int t;
+  cin>>t;
+   
+   while(t--){ 
+    int sum=0;
+    cin>>size;
+    
+    vector<int>  a(size);
+    
+    for(int i=0;i<size;i++)
+    {  cin>>a[i];
+       sum+=a[i];
+    }
+    if(sum%2==1)
+    {
+        cout<<"NO\n";
+        continue;
+    }
+    if(check(a,0,sum/2))
+      cout<<"YES\n";
+    else
+      cout<<"NO\n";
+   }
+    return 0;
+}
