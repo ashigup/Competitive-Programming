@@ -1,0 +1,40 @@
+//Google kick Start 2020
+//Problem 1: Allocation
+//Author -- ashigup -- aka -- Lucifer_07__
+
+
+#include<bits/stdc++.h>
+#define ll long long int
+using namespace std;
+
+int main()
+{
+    ll t,k=0;
+    ll n,b,count;
+    cin>>t;
+    while(t--)
+    { k++;
+        count=0;
+        cin>>n>>b;
+        vector<ll> a(n);
+        for(ll i=0;i<n;i++)
+          cin>>a[i];
+          
+      sort(a.begin(),a.begin()+n);
+      
+      for(ll j=0;j<n;j++)
+      {
+          if(b-a[j]>=0)
+           {
+               count++;
+               b=b-a[j];
+           }
+          
+          
+      } 
+       cout<<"Case #"<<k<<": "<<count<<"\n";  
+        
+    }
+    
+    return 0;
+}
