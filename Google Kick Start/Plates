@@ -1,0 +1,63 @@
+//Google Kick Start 2020
+// Problem 2: Plates
+//Author -- ashigup -- aka -- Lucifer_07__
+
+
+
+#include<bits/stdc++.h>
+#define ll long long int
+using namespace std;
+
+ll t,v=0;
+ll dp[100];
+ll maxsum(ll stck[][35],vector<ll> pn, ll size,ll p,ll n,ll k)
+{ ll best;
+    if(p==size)
+        return 0;
+      
+    
+    else
+    {
+        best=0;
+        
+        for(ll i=0;i<n;i++)
+        {  pn[i]++;
+        
+            best=max(best,maxsum(stck,pn,size+1,p,n,k) +stck[i][pn[i]]);
+            pn[i]--;
+        }
+        
+        //dp[size]= best;
+        return best;
+        
+    }
+    
+    
+}
+
+
+int main()
+{ ios_base::sync_with_stdio(false);
+cin.tie(NULL);
+    
+    
+    for(ll o=0;o<100;o++)
+    dp[o]=-1;
+    cin>>t;
+    while(t--){v++;
+        ll p,n,k;
+    ll stck[55][35];    
+    for(ll i=0;i<55;i++)
+       for(ll j=0;j<35;j++)
+            stck[i][j]=0;
+    cin>>n>>k>>p;
+    vector<ll> pn(n,-1);
+    for(ll i=0;i<n;i++)
+       for(ll j=0;j<k;j++)
+          cin>>stck[i][j];
+   
+     cout<<"Case #"<<v<<": "<<maxsum(stck,pn,0,p,n,k)<<"\n";
+    }
+    
+    return 0;
+}
