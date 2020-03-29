@@ -1,0 +1,34 @@
+//https://atcoder.jp/contests/dp/tasks/dp_a
+//Atcoder dp_contest problem 2---- B.Frog2
+//Author ashigup -- aka -- Lucifer_07__
+
+
+#include<iostream>
+#include<vector>
+#define inf 1000000007
+#define ll long long int
+using namespace std;
+int main()
+{
+    ll n,k=2;
+    cin>>n;
+    vector<ll> h(n+2);
+    vector<ll> cost(n+2,inf);
+    cost[0]=0;
+    cost[1]=0;
+    
+    for(ll i=1;i<=n;i++)
+         cin>>h[i];
+         
+    for(ll i=1;i<=n;i++)
+    { for(ll j=1;j<=k;j++)
+        if(i+j<=n)
+        
+            cost[i+j]=min(cost[i+j],abs(h[i+j]-h[i])+cost[i]);
+        
+        
+    }
+         
+    cout<<cost[n]<<"\n";
+    return 0;
+}
