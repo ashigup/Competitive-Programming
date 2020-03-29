@@ -1,0 +1,50 @@
+// https://atcoder.jp/contests/dp/tasks/dp_d
+// atcoder -- DP Contest 
+//Problem - D.Knapsack1
+//Author -- ashigup -- aka -- Lucifer_07__
+
+
+
+#include<iostream>
+#include<vector>
+#include<algorithm>
+#include<bits/stdc++.h>
+#define ll long long int
+using namespace std;
+ll cost[105][2];    //cost[][0] - represents weight 
+ll dp[105][1000005];      //cost[][1] - represents val  
+ll n,W,maxc;
+ll fun(ll i, ll w)
+{ 
+    if(i==n || w>W)
+     return 0;
+   if(dp[i][w]!=-1)
+      return dp[i][w];
+   
+   
+   if(w+cost[i][0]>W)
+     return fun(i+1,w);
+    else
+    {
+        return dp[i][w]=max(fun(i+1,w),fun(i+1,w+cost[i][0])  + cost[i][1]);
+    }
+    
+     
+}
+
+
+int main()
+{
+    
+    memset(dp,-1,sizeof(dp));
+    cin>>n>>W;
+    
+    for(ll i=0;i<n;i++)    
+      cin>>cost[i][0]>>cost[i][1];
+      
+    maxc=fun(0,0); 
+    
+    cout<<maxc<<"\n"; 
+    
+    return 0;
+}
