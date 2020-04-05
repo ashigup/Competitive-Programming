@@ -1,0 +1,77 @@
+//https://codingcompetitions.withgoogle.com/codejam/round/000000000019fd27/000000000020bdf9
+//CodeJAM 2020 
+//Problem :  Parenting Partnering Returns (7pts,12pts)
+//author -- ashigup -- aka -- Lucifer_07__
+
+
+ #include<iostream>
+#include<map>
+#include<vector>
+#define ll long long int
+using namespace std;
+
+int main()
+{ ll t,m=0;
+  cin>>t;
+  
+  while(t--){
+    m++;
+    ll n,ce=0,je=0;
+    cin>>n;
+    
+    ll p,b;
+    
+    
+    cout<<"Case #"<<m<<": ";
+    
+    
+    
+    char ans[1005];
+    
+    multimap<pair<int,int> , int> mp;
+    int flag=1;
+    for(ll i=0;i<n;i++)
+    {
+        cin>>p>>b;
+        mp.insert({{p,b},i});
+    }
+    
+    
+    for(auto it=mp.begin();it!=mp.end();it++)
+    
+    {  //cout<<it->first<<"   "<<it->second<<"\n";
+       if(ce<=it->first.first)
+       {
+          // cs=it->first;
+           ce=it->first.second;
+           ans[it->second]='C';
+       }
+    
+    else  if(je<=it->first.first)
+      {
+          je=it->first.second;
+          ans[it->second]='J';
+      }
+    else
+    {
+        flag=0;
+        break;
+    }
+     
+    
+    }
+    
+    if(flag==1)
+    {  
+        for(ll z=0;z<n;z++)
+         cout<<ans[z];
+         
+        cout<<"\n"; 
+    }
+    else
+      cout<<"IMPOSSIBLE\n";
+    
+  }    
+    
+   return 0; 
+}
