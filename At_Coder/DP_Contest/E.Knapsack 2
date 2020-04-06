@@ -1,0 +1,57 @@
+// https://atcoder.jp/contests/dp/tasks/dp_e
+//atcoder -- Dp contest 
+//problem - E.Knapsack 2
+//Author -- ashigup -- aka -- Lucifer_07__
+
+
+
+#include<iostream>
+#include<vector>
+#define inf 1000000007
+#include<cstring>
+#define ll long long int
+using namespace std;
+ll N,W;
+vector<ll> w(104);
+vector<ll> v(104);
+
+ll dp[105][100005];
+
+ll maxval(ll i ,ll val)
+{
+    if(val==0)
+     return 0;
+    if(i==N || val <0)
+      return inf;
+    if(dp[i][val]!=-1)
+       return dp[i][val];
+    
+    return dp[i][val]=min(maxval(i+1,val-v[i])+w[i], maxval(i+1,val));
+}
+
+
+int main()
+{
+    ll sum=0;
+
+    cin>>N>>W;
+  
+    memset(dp,-1,sizeof dp );
+    for(ll i=0;i<N;i++)
+    {
+        cin>>w[i]>>v[i];
+        sum+=v[i];
+    }
+    ll maxv;
+    
+    for(ll val=sum;val>=0;val--)
+    {
+        if(maxval(0,val)<=W)
+        {
+            maxv=val;
+            break;
+        }
+    }
+    
+    cout<<maxv<<"\n";
+}
