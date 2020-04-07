@@ -1,0 +1,64 @@
+// https://atcoder.jp/contests/dp/tasks/dp_g
+// atcoder DPContest 
+// problem : G - Longest Path Solution
+//author -- ashigup -- aka -- Lucifer_07__
+
+*************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+G - Longest Path
+
+There is a directed graph G with N vertices and M edges. The vertices are numbered 1,2,…,N , and for each i (1≤i≤M), the i-th directed edge goes from Vertex xi to  yi. G does not contain directed cycles.
+Find the length of the longest directed path in G. Here, the length of a directed path is the number of edges in it.
+
+
+
+
+
+********************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+
+
+
+
+#include<iostream>
+#include<vector>
+#include<algorithm>
+#define ll long long int 
+using namespace std;
+vector<ll> dp(100005,-1);
+
+
+ll depth(vector<ll> adj[],ll i)
+{  
+   if(adj[i].size()==0)
+       return 0;
+    ll ans=0;   
+    
+    if(dp[i]!=-1)
+      return dp[i];
+    
+    for(auto c : adj[i])
+     {
+         ans=max(ans,depth(adj,c)+1);
+     }
+    return dp[i]=ans;
+}
+
+
+int main()
+{
+    ll n,m,x,y;
+    cin>>n>>m;
+    
+    vector<ll> adj[n+1];
+    
+    for(ll i=0;i<m;i++)
+    {
+        cin>>x>>y;
+        adj[x].push_back(y);
+    }
+    ll maxd=0;
+    for(ll i=1;i<=n;i++)
+    maxd=max(maxd,depth(adj ,i));
+    
+    cout<<maxd;
+    return 0;
+}
