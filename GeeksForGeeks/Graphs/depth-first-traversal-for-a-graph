@@ -1,0 +1,22 @@
+https://practice.geeksforgeeks.org/problems/depth-first-traversal-for-a-graph/1
+//Practice Problem -- depth-first-traversal-for-a-graph
+//Author -- ashigup -- aka -- Lucifer_07__
+
+
+
+
+/* Function to do DFS of graph
+*  g[]: array of vectors to represent graph
+*  vis[]: array to keep track of visited vertex
+*/
+void dfs(int s, vector<int> g[], bool vis[])
+{   if(vis[s]==1)
+       return ;
+    cout<<s<<" ";
+    vis[s]=1;
+    for(auto c: g[s])
+    {
+        dfs(c,g,vis);
+    }
+    
+ }
