@@ -1,0 +1,70 @@
+//https://practice.geeksforgeeks.org/problems/detect-cycle-in-a-directed-graph/1/
+//Practice problem : Detect cycle in a directed graph
+//author -- ashigup -- aka -- Lucifer_07__
+
+
+// } Driver Code Ends
+/*  Function to check if the given graph contains cycle
+*   V: number of vertices
+*   adj[]: representation of graph
+*/
+
+bool dfs(int x,vector<int> adj[],bool stk[])
+{
+    
+    for (auto c: adj[x])
+     {if (stk[c]==1)
+         return 1;
+         
+        stk[c]=1;
+        if ( dfs(c,adj,stk) )
+            return 1;
+        stk[c]=0;
+     }
+     return 0;
+}
+
+
+
+bool isCyclic(int V, vector<int> adj[])
+{ 
+   // bool vis[V];
+    bool stk[V];
+     for(int i=0;i<V;i++)
+         stk[i]=0;
+    
+    for(int i=0;i<V;i++)
+    {  stk[i]=1;
+        if(dfs(i,adj,stk))
+           return 1;
+        stk[i]=0;  
+    }
+    return 0;
+}
+
+// { Driver Code Starts.
+
+int main() {
+	
+	int t;
+	cin >> t;
+	
+	while(t--){
+	    
+	    int v, e;
+	    cin >> v >> e;
+	    
+	    vector<int> adj[v];
+	    
+	    for(int i =0;i<e;i++){
+	        int u, v;
+	        cin >> u >> v;
+	        adj[u].push_back(v);
+	    }
+	    
+	    cout << isCyclic(v, adj) << endl;
+	    
+	}
+	
+	return 0;
+}  // } Driver Code Ends
