@@ -1,0 +1,39 @@
+//Catalan Numbers 
+//Author -- ashigup --aka-- Lucifer_07__
+
+
+
+#include<bits/stdc++.h>
+#include <boost/multiprecision/cpp_int.hpp> 
+#define ll long long int
+using namespace boost::multiprecision;
+using namespace std;
+
+int main()
+{
+  int256_t cn[105];
+  cn[0]=1;
+  cn[1]=1;
+  
+  for(ll i=2;i<104;i++)
+  {
+      cn[i]=0;
+      for(ll j=0;j<i;j++)
+      {
+          cn[i]=(int256_t)cn[i]  + (int256_t)(cn[j]*cn[i-1-j]);
+      }
+      
+  }
+  ll t;
+  cin>>t;
+  while(t--)
+  {
+      ll n;
+      cin>>n;
+      cout<<cn[n]<<"\n";
+      
+      
+  }
+  
+	return 0;
+}
