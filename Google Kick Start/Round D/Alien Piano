@@ -1,0 +1,80 @@
+//https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff08/0000000000387174
+//Round D
+//Kickstart 2020
+//Alien Piano
+//Author -ashigup -- aka -- Lucifer07
+
+#include<bits/stdc++.h>
+#define ll long long
+#define mod 1000000007
+#define f(i,n,a)  for(ll i=a;i<n;i++)
+#define rf(i,n)  for(ll i=n;i>=0;i--)
+using namespace std;
+int main()
+{
+    ll t;
+    cin>>t;
+    
+    for(ll i=1;i<=t;i++)
+    {
+        ll n;
+        cin>>n;
+        
+        ll a[n];
+        for(ll j=0;j<n;j++)
+        {
+            cin>>a[j];
+        }
+       ll count=0;
+       
+       ll cmx=0;ll cmn=0;
+       
+       
+       for(ll i=1;i<n;i++)
+       {
+           if(a[i]>a[i-1]){cmn=0;
+              cmx++;}
+          
+          if(a[i]<a[i-1])  
+              {
+                  cmn++;
+                  cmx=0;
+              }
+              
+              
+              if(cmx==4)
+              {
+                  count++;
+                  cmx=0;
+              }
+              
+              
+              if(cmn==4)
+           {
+               count++;
+               cmn=0;
+           }
+           
+       }
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+          
+          cout<<"Case #"<<i<<": "<<count<<"\n";
+        
+    }
+    
+    return 0;
+}
