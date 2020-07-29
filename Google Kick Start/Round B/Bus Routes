@@ -1,0 +1,47 @@
+//https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc8/00000000002d83bf
+//Bus Routes
+//Author -- ashigup --aka-- Lucifer07
+
+
+#include<bits/stdc++.h>
+#define ll long long int
+#define mod 1000000007
+using namespace std;
+
+int main()
+{
+    ll t,m=0;
+    cin>>t;
+    
+    while(t--)
+    { m++;
+    ll n,d,t=1;
+        cin>>n>>d;
+        vector<ll> b(n+3);
+        ll mind=mod;
+        for(ll i=0;i<n;i++)
+        {   cin>>b[i];
+        }
+        
+        ll ans=d;
+        for(ll i=n-1;i>=0;i--)
+        {
+            if(ans%b[i]==0)
+               continue;
+               
+            else
+             {  t=ans%b[i];
+                 ans=ans-t;
+             }
+            
+            
+        }
+       
+        
+        cout<<"Case #"<<m<<": "<<ans<<"\n";      
+              
+    }
+    
+    
+    return 0;
+}
