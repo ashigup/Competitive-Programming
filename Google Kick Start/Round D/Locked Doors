@@ -1,0 +1,74 @@
+//https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff08/0000000000386d5c
+//Round D
+//Kickstart 2020
+//Locked Doors
+//Author --ashigup --aka -- Lucifer07
+// Partial Solution
+
+
+
+
+
+
+
+
+#include<bits/stdc++.h>
+#define ll long long int
+using namespace std;
+
+
+
+int main()
+{   ll t;
+    cin>>t;
+ 
+    for(int casenum=1;casenum<=t;casenum++)
+    {  ll n,q;
+    ll a,c;
+        cout<<"Case #"<<casenum<<": ";
+        cin>>n>>q;    
+        ll qw[n+5];
+        for(int i=1;i<n;i++)
+            cin>>qw[i];
+        
+        
+        
+        while(q--)
+        {
+            cin>>a>>c;
+            int i=a;
+            int j=i;
+            c--;
+            if(c==0) cout<<i<<" ";
+            if(c>0)
+            for(int k=0;k<n;k++)
+            {
+                c--;
+                if(i==1||qw[j]<qw[i-1])
+                {
+                    j++;
+                    if(c==0) cout<<j<<" ";
+                }
+                else
+                {
+                    i--;
+                    if(c==0) cout<<i<<" ";
+                }
+                
+            }
+            
+            
+        }
+        
+        
+        
+        
+        cout<<"\n";
+        
+        
+    }
+    
+    
+    return 0;
+}
+
