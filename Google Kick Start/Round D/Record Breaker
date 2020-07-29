@@ -1,0 +1,48 @@
+//https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff08/0000000000387171
+//Round D
+//Kickstart 2020
+//Record Breaker
+//Author -- ashigup --aka -- lucifer07
+
+
+
+#include<bits/stdc++.h>
+#define ll long long
+#define mod 1000000007
+#define f(i,n,a)  for(ll i=a;i<n;i++)
+#define rf(i,n)  for(ll i=n;i>=0;i--)
+using namespace std;
+int main()
+{
+    ll t;
+    cin>>t;
+    
+    for(ll i=1;i<=t;i++)
+    {
+        ll n;
+        cin>>n;
+        ll mx=-1;
+        ll a[n];
+        for(ll j=0;j<n;j++)
+        {
+            cin>>a[j];
+        }
+        ll count=0;
+        for(ll j=0;j<n-1;j++)
+        {
+            if(a[j]>mx && a[j]>a[j+1])
+               count++;
+               
+               mx=max(a[j],mx);
+        }
+        
+        
+        if(a[n-1]>mx)
+          count++;
+          
+          cout<<"Case #"<<i<<": "<<count<<"\n";
+        
+    }
+    
+    return 0;
+}
