@@ -2,11 +2,8 @@
 //author--ashigup
 
 
-#include<iostream>
-#include<bitset>
-#include<vector>
-#include<math.h>
-#define ll long long int
+#include<bits/stdc++.h>
+#define ll long long 
 using namespace std;
 int main()
 {  ll n,i,j,k,m;                
@@ -36,10 +33,12 @@ int main()
           }
          for(m=0;m<k;m++)
            cout<<v[m]<<" ";
+          //shj[sish]
          cout<<"\n";  
       }
       }
-cout<<"-------------------------------------------------------------------\n";      
+     
+cout<<"--------walmart supports diversity hiring-----------------------------------------------------------\n";      
  }
     return 0;
 }
